@@ -3,21 +3,24 @@
   "description": "serverless",
   "version": "0.1.0",
   "scripts": {
-    "deploy-dev": "sls deploy -v --stage dev --region sa-east-1 ",
+    "deploy-dev": "sls deploy -v --stage dev --region us-east-1 ",
+    "remove-dev": "sls remove -v --stage dev --region us-east-1 ",
     "deploy-ci": "sls deploy -v --stage $STAGE --region $REGION ",
-    "remove-dev": "sls remove -v --stage dev --region sa-east-1 ",
     "remove-ci": "sls remove -v --stage $STAGE --region $REGION ",
     "build": "sls package",
     "start": "sls offline start"
   },
   "devDependencies": {
-    "jest": "^26.4.2",
-    "serverless": "^2.19.0",
+    "jest": "^26.6.3",
+    "serverless": "^2.29.0",
     "serverless-offline": "^6.8.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.825.0",
+    "@middy/core": "^1.5.2",
+    "@middy/http-json-body-parser": "^1.5.2",
+    "aws-sdk": "^2.863.0",
     "axios": "^0.21.1",
+    "joi": "^17.4.0",
     "jsend": "^1.1.0",
     "lambda-log": "^2.4.0"
   }

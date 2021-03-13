@@ -35,4 +35,4 @@ function validateQueryParams(requestQueryParams, requiredQueryParams) {
   }
 }
 
-export { validateQueryParams, validateSchema };
+module.exports = { validateQueryParams, validateSchema };

@@ -4,19 +4,14 @@ const log = require('./logger');
 const s3 = new AWS.S3();
 
 function getDataLakeFolderStructure(meta) {
-  const { division, brand, locale, type } = meta;
+  const { root } = meta;
 
   const date = new Date();
   const year = date.getUTCFullYear();
   const month = date.getUTCMonth() + 1;
   const day = date.getUTCDate();
 
-  return `${
-    config.ML_S3_BUCKET_NAME
-  }/${division.toLowerCase()}/${brand.toLowerCase()}/${locale
-    .toLowerCase()
-    .split('-')
-    .join('/')}/profiler/${type.toLowerCase()}/${year}/${month}/${day}`;
+  return `${config.ML_S3_BUCKET_NAME}/${root}/${year}/${month}/${day}`;
 }
 
 function getTimestampFileName() {

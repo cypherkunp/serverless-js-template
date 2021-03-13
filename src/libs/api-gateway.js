@@ -40,9 +40,7 @@ function getErrorResponse(statusCode, errorData, headers) {
 }
 
 module.exports = {
-  getNoContentResponse,
   getSuccessResponse,
   getErrorResponse,
   getFailResponse,
-  APIResponseType,
 };
