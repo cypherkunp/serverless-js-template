@@ -2,6 +2,12 @@
   "name": "serverless-js-template",
   "description": "serverless",
   "version": "0.1.0",
+  "author": {
+    "name": "Devvrat Shukla",
+    "email": "devvratshukla@gmail.com",
+    "url": "https://cypherkunp.github.io/"
+  },
+  "license": "UNLICENSE",
   "scripts": {
     "deploy-dev": "sls deploy -v --stage dev --region us-east-1 ",
     "remove-dev": "sls remove -v --stage dev --region us-east-1 ",
