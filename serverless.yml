@@ -1,0 +1,35 @@
+service: serverless-js-template
+frameworkVersion: '2'
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  region: ${opt:region}
+  accountId: ${opt:accountId}
+  bucketName: ${self:service}-${self:custom.stage}-datalake-bucket-s3
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  lambdaHashingVersion: 20201221
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1'
+    DEBUG_LOGGING: ${env:DEBUG_LOGGING , true}
+
+functions:
+  hello:
+    handler: src/save-request-s3/handler.main
+    events:
+      - httpApi:
+          path: /s3
+          method: post
+resources:
+  Resources:
+    NewResource:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.bucketName}
+  Outputs:
+    NewOutput:
+      Description: 'Description for the output'
+      Value: 'Some output value'

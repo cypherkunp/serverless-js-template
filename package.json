@@ -1,0 +1,24 @@
+{
+  "name": "serverless-js-template",
+  "description": "serverless",
+  "version": "0.1.0",
+  "scripts": {
+    "deploy-dev": "sls deploy -v --stage dev --region sa-east-1 ",
+    "deploy-ci": "sls deploy -v --stage $STAGE --region $REGION ",
+    "remove-dev": "sls remove -v --stage dev --region sa-east-1 ",
+    "remove-ci": "sls remove -v --stage $STAGE --region $REGION ",
+    "build": "sls package",
+    "start": "sls offline start"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2",
+    "serverless": "^2.19.0",
+    "serverless-offline": "^6.8.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.825.0",
+    "axios": "^0.21.1",
+    "jsend": "^1.1.0",
+    "lambda-log": "^2.4.0"
+  }
+}
